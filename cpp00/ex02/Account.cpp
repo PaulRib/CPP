@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 14:23:20 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/08/25 17:34:27 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/08/25 17:56:42 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,15 @@ int Account::_totalNbWithdrawals = 0;
 int	Account::getNbAccounts( void ) {
 	return (_nbAccounts);
 }
+
 int	Account::getTotalAmount( void ) {
 	return (_totalAmount);
 }
+
 int	Account::getNbDeposits( void ) {
 	return (_totalNbDeposits);
 }
+
 int	Account::getNbWithdrawals( void ) {
 	return (_totalNbWithdrawals) ;
 }

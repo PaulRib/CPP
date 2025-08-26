@@ -2,8 +2,8 @@ NAME = megaphone
 SRC = megaphone.cpp
 OBJS = $(SRC:.cpp=.o)
 
-CC = c++ 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++ 
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RESET	= \033[0m
 RED		= \033[1;31m
@@ -16,12 +16,12 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@printf "$(BLUE):hammer: Linking $(NAME)...$(RESET)\n"
-	@$(CC) $(FLAGS) -o $@ $^
+	@$(CXX) $(CXXFLAGS) -o $@ $^
 	@printf "$(GREEN):white_check_mark: Build complete: $(NAME)$(RESET)\n"
 
 %.o: %.cpp
 	@printf "$(YELLOW):package: Compiling $<...$(RESET)\n"
-	@$(CC) $(FLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	@printf "$(RED):broom: Cleaning object files...$(RESET)\n"
