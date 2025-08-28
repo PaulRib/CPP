@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 16:52:30 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/08/22 18:15:13 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/08/28 18:28:23 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,3 @@ void Contact::setPhoneNumber(const std::string &tmp) {
 void Contact::setDarkestSecret(const std::string &tmp) {
 	_darkest_secret = tmp;
 }
-
