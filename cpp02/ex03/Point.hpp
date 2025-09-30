@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/25 18:00:01 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/09/16 15:42:16 by pribolzi         ###   ########.fr       */
+/*   Created: 2025/09/17 16:39:49 by pribolzi          #+#    #+#             */
+/*   Updated: 2025/09/22 18:21:15 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#pragma once
 
-int main() {
-	Zombie* zb;
+#include "Fixed.hpp"
 
-	zb = newZombie("Zombo");
-	randomChump("Zomba");
-	zb->announce();
-	delete zb;
-}
+class Point {
+	private :
+		Fixed const _x;
+		Fixed const _y;
+	public :
+		Point();
+		Point(const float x, const float y);
+		Point(const Point &p);
+		Point& operator=(const Point& copy);
+		~Point();
+		Fixed getX() const ;
+		Fixed getY() const ;
+};
+
+bool bsp(Point const a, Point const b, Point const c, Point const point);

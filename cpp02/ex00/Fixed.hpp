@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/25 18:00:01 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/09/16 15:42:16 by pribolzi         ###   ########.fr       */
+/*   Created: 2025/09/15 14:55:42 by pribolzi          #+#    #+#             */
+/*   Updated: 2025/09/16 15:59:56 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef FIXED_H
+# define FIXED_H
 
-int main() {
-	Zombie* zb;
+#include <iostream>
 
-	zb = newZombie("Zombo");
-	randomChump("Zomba");
-	zb->announce();
-	delete zb;
-}
+class Fixed {
+	private :
+		int _rawBits;
+		static const int _fracBits = 8;
+	public :
+		Fixed();
+		Fixed(const Fixed &first);
+		~Fixed();
+		int getRawBits( void ) const;
+		void setRawBits( int const raw);
+		Fixed& operator=(const Fixed& copy);
+};
+
+#endif 
