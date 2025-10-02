@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 18:07:15 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/01 18:46:04 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/02 16:03:29 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 		~DiamondTrap();
 		DiamondTrap& operator=(const DiamondTrap& copy);
 		void whoAmI();
-		using ScavTrap::attack;
+	//	using ScavTrap::attack;
 };
