@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 17:52:12 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/01 18:04:30 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/02 11:58:34 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,10 @@ FragTrap& FragTrap::operator=(const FragTrap& copy) {
 }
 
 void FragTrap::highFivesGuys() {
-	switch (_health) {
-		case 0 :
-			std::cout << "FragTrap " << _name << " is dead and can't complete the high fives" << std::endl;
-			break;
-		default :
-			std::cout << "FragTrap " << _name << " accept your request of high fives" << std::endl;
-	}
+	if (_health == 0)
+		std::cout << "FragTrap " << _name << " is dead and can't complete the high fives" << std::endl;
+	else if (_energy == 0)
+		std::cout << "ScavTrap " << _name << " is running out of energy and can't high fives" << std::endl;
+	else
+		std::cout << "FragTrap " << _name << " accept your request of high fives" << std::endl;
 }

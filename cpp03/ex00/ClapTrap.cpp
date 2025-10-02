@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 16:36:27 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/09/30 17:25:00 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/02 13:18:18 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,17 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& copy) {
 	return (*this);
 }
 
-void ClapTrap::attack(const std::string &target) {\
-	if (_energy > 0 && _health > 0) {
-		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing ";
-		std::cout << _damage << " points of damage!" << std::endl;
-		_energy--; }
-	else if (_health == 0) {
+void ClapTrap::attack(const std::string &target) {
+	if (_health == 0) {
 		std::cout << "ClapTrap " << _name << " is dead, let him rest in peace" << std::endl;
 	}
 	else if (_energy == 0) {
 		std::cout << "ClapTrap " << _name << " is running out of energy and can't attack" << std::endl;
+	}
+	else {
+		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing ";
+		std::cout << _damage << " points of damage!" << std::endl;
+		_energy--;
 	}
 }
 
@@ -65,15 +66,15 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-	if (_energy > 0 && _health > 0) {
-		_health += amount;
-		std::cout << "ClapTrap " << _name << " has healed " << amount << " hp and is now at " << _health << " hp" << std::endl;
-		_energy--;
-	}
-	else if (_health == 0) {
+	if (_health == 0) {
 		std::cout << "ClapTrap " << _name << " is dead, let him rest in peace" << std::endl;
 	}
 	else if (_energy == 0) {
 		std::cout << "ClapTrap " << _name << " is running out of energy and can't repair itself" << std::endl;
+	}
+	else {
+		_health += amount;
+		std::cout << "ClapTrap " << _name << " has healed " << amount << " hp and is now at " << _health << " hp" << std::endl;
+		_energy--;
 	}
 }

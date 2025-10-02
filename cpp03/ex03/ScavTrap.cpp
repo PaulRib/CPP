@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 17:27:49 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/01 17:49:07 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/02 13:19:02 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,24 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& copy) {
 }
 
 void ScavTrap::attack(const std::string &target) {\
-	if (_energy > 0 && _health > 0) {
-		std::cout << "ScavTrap " << _name << " attacks " << target << ", causing ";
-		std::cout << _damage << " points of damage!" << std::endl;
-		_energy--; }
-	else if (_health == 0) {
+	if (_health == 0) {
 		std::cout << "ScavTrap " << _name << " is dead, let him rest in peace" << std::endl;
 	}
 	else if (_energy == 0) {
 		std::cout << "ScavTrap " << _name << " is running out of energy and can't attack" << std::endl;
 	}
+	else {
+		std::cout << "ScavTrap " << _name << " attacks " << target << ", causing ";
+		std::cout << _damage << " points of damage!" << std::endl;
+		_energy--;
+	}
 }
 
 void ScavTrap::guardGate() {
-	switch (_health) {
-		case 0 :
-			std::cout << "ScavTrap " << _name << " is dead and can't keep the gate" << std::endl;
-			break ;
-		default :
-			std::cout << "ScavTrap " << _name << " is now in Gate keeper mode" << std::endl;
-	}
+	if (_health == 0)
+		std::cout << "ScavTrap " << _name << " is dead and can't keep the gate" << std::endl;
+	else if (_energy == 0)
+		std::cout << "ScavTrap " << _name << " is running out of energy and can't guard the gate" << std::endl;
+	else
+		std::cout << "ScavTrap " << _name << " is now in Gate keeper mode" << std::endl;
 }
