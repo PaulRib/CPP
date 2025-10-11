@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/02 14:03:30 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/08 17:07:59 by pribolzi         ###   ########.fr       */
+/*   Created: 2025/10/09 16:09:41 by pribolzi          #+#    #+#             */
+/*   Updated: 2025/10/11 16:36:45 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
+#pragma once
 
-int main()
-{
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-	delete i;
-	delete j;
-	delete meta;
-	return 0;
-}
+#include "AMateria.hpp"
+
+class Cure : public AMateria {
+	public:
+		Cure();
+		Cure(const Cure& copy);
+		~Cure();
+		Cure& operator=(const Cure& copy);
+		AMateria* clone() const;
+		void use(ICharacter& target);
+};

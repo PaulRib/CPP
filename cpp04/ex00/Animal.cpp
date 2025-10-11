@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 13:36:31 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/02 14:08:32 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/08 16:23:55 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Animal::Animal(const Animal& copy) {
 }
 
 Animal::~Animal() {
-	std::cout << "An animal of " << _type << " has been destroyed" << std::endl;
+	std::cout << "An animal of " << _type << " type has been destroyed" << std::endl;
 }
 
 Animal& Animal::operator=(const Animal& copy) {
@@ -34,7 +34,7 @@ Animal& Animal::operator=(const Animal& copy) {
 }
 
 void Animal::makeSound() const{
-	std::cout << "An unknown sound of animal is heared" << std::endl;
+	std::cout << "An unknown sound of animal is heard" << std::endl;
 }
 
 std::string Animal::getType() const{

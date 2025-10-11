@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/02 13:41:40 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/08 16:51:25 by pribolzi         ###   ########.fr       */
+/*   Created: 2025/10/09 17:41:22 by pribolzi          #+#    #+#             */
+/*   Updated: 2025/10/11 16:24:07 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#include "ICharacter.hpp"
 
-#include "Animal.hpp"
-#include "Brain.hpp"
-
-class Cat : public Animal {
-	private :
-		Brain* _b;
-	public :
-		Cat();
-		Cat(const Cat& copy);
-		virtual ~Cat();
-		Cat& operator=(const Cat& copy);
-		void makeSound() const;
+class Character : public ICharacter {
+	private:
+		std::string _name;
+		AMateria* _stuff[4];
+		AMateria* _trash[9999];
+	public:
+		Character(std::string name);
+		Character(const Character& copy);
+		~Character();
+		Character& operator=(const Character& copy);
+		std::string const& getName() const;
+		void equip(AMateria* m);
+		void unequip(int idx);
+		void use(int idx, ICharacter& target);
 };

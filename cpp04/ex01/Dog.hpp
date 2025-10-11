@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 13:48:50 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/02 14:18:37 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/08 16:51:45 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Dog : public Animal {
 	public :
 		Dog();
 		Dog(const Dog& copy);
-		~Dog();
+		virtual ~Dog();
 		Dog& operator=(const Dog& copy);
 		void makeSound() const;
 };

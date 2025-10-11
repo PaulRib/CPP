@@ -1,5 +1,5 @@
-NAME = abstract
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
+NAME = materia
+SRC = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 OBJS = $(SRC:.cpp=.o)
 
 CXX = c++ 

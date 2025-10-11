@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 13:42:45 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/02 14:19:30 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/08 17:05:35 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Cat::Cat() : _b(new Brain) {
 	std::cout << "One " << _type << " just appeared to ask you some food" << std::endl;
 }
 
-Cat::Cat(const Cat& copy) {
+Cat::Cat(const Cat& copy) : _b(new Brain) {
 	*this = copy;
 	std::cout << "A copy" << _type << " appeared" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 13:49:49 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/02 14:19:51 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/08 17:08:45 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Dog::Dog() : _b(new Brain){
 	std::cout << "A new version of a " << _type << " is created" << std::endl;
 }
 
-Dog::Dog(const Dog& copy) {
+Dog::Dog(const Dog& copy) : _b(new Brain){
 	std::cout << "The clone of a " << _type << " is successfully created" << std::endl;
 	*this = copy;
 }
