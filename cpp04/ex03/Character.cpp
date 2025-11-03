@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 17:44:23 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/11 16:40:17 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/21 17:47:23 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,19 @@ Character::Character(std::string name) : _name(name) {
 		_stuff[i] = NULL;
 	for (int i = 0; i < 9999; i++)
 		_trash[i] = NULL;
-	std::cout << "Character constructor called" << std::endl;
+//	std::cout << "Character constructor called" << std::endl;
 }
 
 Character::Character(const Character& copy) {
-	*this = copy;
+	_name = copy._name;
+	for (int i = 0; i < 4; i++) {
+		if (copy._stuff[i])
+			_stuff[i] = copy._stuff[i]->clone();
+		else
+			_stuff[i] = NULL;
+	}
+	for (int i = 0; i < 9999; i++)
+		_trash[i] = NULL;
 //	std::cout << "Copy character constructor called" << std::endl;
 }
 
@@ -39,8 +47,17 @@ Character::~Character() {
 }
 
 Character& Character::operator=(const Character& copy) {
-	if (this != &copy)
-		_name = copy._name;
+	if (this != &copy) {
+	 	_name = copy._name;
+		for (int i = 0; i < 4; i++) {
+			if (_stuff[i])
+				delete _stuff[i];
+			if (copy._stuff[i])
+				_stuff[i] = copy._stuff[i]->clone();
+			else
+				_stuff[i] = NULL;
+		}
+	}
 	return (*this);
 }
 
@@ -52,6 +69,12 @@ void Character::equip(AMateria* m) {
 	for (int i = 0; i < 4; i++) {
 		if (!_stuff[i]) {
 			_stuff[i] = m;
+			return ;
+		}
+	}
+	for (int i = 0; i < 9999; i++) {
+		if (!_trash[i]) {
+			_trash[i] = m;
 			return ;
 		}
 	}

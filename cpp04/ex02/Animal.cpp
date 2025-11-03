@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 13:36:31 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/08 17:17:46 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/20 17:12:41 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ AAnimal::AAnimal(){
 }
 
 AAnimal::AAnimal(const AAnimal& copy) {
-	*this = copy;
+	_type = copy._type;
 	std::cout << "A copy of an " << _type << " animal is created" << std::endl;
 }
 

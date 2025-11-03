@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 15:54:52 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/11 16:42:03 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/20 15:50:46 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,32 @@ MateriaSource::MateriaSource() {
 
 MateriaSource::MateriaSource(const MateriaSource& copy) {
 //	std::cout << "MateriaSource copy constructor called" << std::endl;
-	*this = copy;
+	for (int i = 0; i < 4; i++) {
+		if (copy._learned[i])
+			_learned[i] = copy._learned[i]->clone();
+		else
+			_learned[i] = NULL;
+	}
 }
 
 MateriaSource::~MateriaSource() {
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < 4; i++)
 		if (_learned[i])
 			delete _learned[i];
-	}
 //	std::cout << "MateriaSource destructor called" << std::endl;
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& copy) {
 	if (this != &copy) {
-		*_learned = *copy._learned;
+		for (int i = 0; i < 4; i++) {
+			if (_learned[i])
+				delete _learned[i];
+			if (copy._learned[i]) {
+				_learned[i] = copy._learned[i]->clone();
+			}
+			else
+				_learned[i] = NULL;
+		}
 	}
 	return (*this);
 }
@@ -51,8 +63,8 @@ void MateriaSource::learnMateria(AMateria* tmp) {
 AMateria* MateriaSource::createMateria(std::string const & type) {
 	for (int i = 0; i < 4; i++) {
 		if (_learned[i]) {
-		if (type == _learned[i]->getType())
-			return (_learned[i]->clone());
+			if (type == _learned[i]->getType())
+				return (_learned[i]->clone());
 		}
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 14:03:30 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/02 16:15:32 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/21 16:39:00 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@
 
 int main()
 {
-	const AAnimal* j = new Dog();
-	const AAnimal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	delete i;
-	delete j;
-	return 0;
+	AAnimal* an[100];
+	for (int i = 0; i < 100; i++) {
+		if (i < 50)
+			an[i] = new Dog;
+		if (i >= 50)
+			an[i] = new Cat;
+	}
+	for (int i = 0; i < 100; i++) {
+		delete an[i];
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 13:42:45 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/02 14:19:30 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/20 17:48:53 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,29 @@
 
 Cat::Cat() : _b(new Brain) {
 	_type = "Cat";
-	std::cout << "One " << _type << " just appeared to ask you some food" << std::endl;
+	std::cout << "One " << _type << " has been created" << std::endl;
 }
 
-Cat::Cat(const Cat& copy) {
-	*this = copy;
+Cat::Cat(const Cat& copy) : _b(new Brain) {
+	_type = copy._type;
+	*_b = *copy._b;
 	std::cout << "A copy" << _type << " appeared" << std::endl;
 }
 
 Cat::~Cat() {
-	std::cout << "The " << _type << " scratched you while you were deleting him" << std::endl;
+	std::cout << "The " << _type << " has been destroyed" << std::endl;
 	delete _b;
 }
 
 Cat& Cat::operator=(const Cat& copy) {
 	if (this != &copy) {
 		_type = copy._type;
+		if (_b)
+			delete _b;
+		if (copy._b)
+			_b = new Brain(*copy._b);
+		else
+			_b = new Brain();
 	}
 	return (*this);
 }

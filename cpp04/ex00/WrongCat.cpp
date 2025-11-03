@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/02 13:42:45 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/20 17:10:31 by pribolzi         ###   ########.fr       */
+/*   Created: 2025/10/20 16:55:21 by pribolzi          #+#    #+#             */
+/*   Updated: 2025/10/21 17:50:13 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat() {
-	_type = "Cat";
+WrongCat::WrongCat() {
+	_type = "WrongCat";
 	std::cout << "One " << _type << " has been created" << std::endl;
 }
 
-Cat::Cat(const Cat& copy) {
+WrongCat::WrongCat(const WrongCat& copy) {
 	_type = copy._type;
 	std::cout << "A copy" << _type << " appeared" << std::endl;
 }
 
-Cat::~Cat() {
+WrongCat::~WrongCat() {
 	std::cout << "The " << _type << " has been destroyed" << std::endl;
 }
 
-Cat& Cat::operator=(const Cat& copy) {
+WrongCat& WrongCat::operator=(const WrongCat& copy) {
 	if (this != &copy) {
 		_type = copy._type;
 	}
 	return (*this);
 }
 
-void Cat::makeSound() const{
-	std::cout << "Meow" << std::endl;
+void WrongCat::makeSound() const {
+	std::cout << "Wrong Meow" << std::endl;
 }

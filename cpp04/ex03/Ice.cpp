@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 16:09:46 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/11 16:40:26 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/20 17:55:34 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Ice::Ice() : AMateria("ice"){
 }
 
 Ice::Ice(const Ice& copy) : AMateria("ice"){
-	*this = copy;
+	_type = copy._type;
 //	std::cout << "Ice copy constructor called" << std::endl;
 }
 

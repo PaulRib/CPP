@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 16:09:38 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/11 16:40:34 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/20 17:55:29 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Cure::Cure() : AMateria("cure") {
 }
 
 Cure::Cure(const Cure& copy) : AMateria("cure") {
-	*this = copy;
+	_type = copy._type;
 //	std::cout << "Cure copy constructor called" << std::endl;
 }
 

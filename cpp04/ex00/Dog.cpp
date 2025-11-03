@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 13:49:49 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/02 14:09:38 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/20 17:10:38 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ Dog::Dog() {
 
 Dog::Dog(const Dog& copy) {
 	std::cout << "The clone of a " << _type << " is successfully created" << std::endl;
-	*this = copy;
+	_type = copy._type;
 }
 
 Dog::~Dog() {
-	std::cout << "Congrats, you just erase from existence a good and happy " << _type << std::endl;
+	std::cout << "A " << _type << "is destroyed" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& copy) {

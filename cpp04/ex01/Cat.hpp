@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 13:41:40 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/08 16:51:25 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/20 17:47:53 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Cat : public Animal {
 	public :
 		Cat();
 		Cat(const Cat& copy);
-		virtual ~Cat();
+		~Cat();
 		Cat& operator=(const Cat& copy);
 		void makeSound() const;
 };

@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 14:12:52 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/10/08 16:51:20 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/10/20 17:47:56 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ class Brain {
 	public :
 		Brain();
 		Brain(const Brain& copy);
-		virtual ~Brain();
+		~Brain();
 		Brain& operator=(const Brain& copy);
 };
