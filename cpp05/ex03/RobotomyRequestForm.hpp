@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/02 14:03:30 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/11/04 17:53:08 by pribolzi         ###   ########.fr       */
+/*   Created: 2025/11/04 15:33:02 by pribolzi          #+#    #+#             */
+/*   Updated: 2025/11/05 13:04:27 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
+#include <cstdlib>
+#include <ctime>
 
-int main()
-{
-	Animal* an[100];
-	for (int i = 0; i < 100; i++) {
-		if (i < 50)
-			an[i] = new Dog;
-		if (i >= 50)
-			an[i] = new Cat;
-	}
-	for (int i = 0; i < 100; i++) {
-		delete an[i];
-	}
-}
-
-int main() {
-	Animal n = Dog();
-}
+class RobotomyRequestForm : public AForm {
+	private :
+		std::string _target;
+	public :
+		RobotomyRequestForm(std::string target);
+		RobotomyRequestForm(RobotomyRequestForm& copy);
+		~RobotomyRequestForm();
+		RobotomyRequestForm& operator=(RobotomyRequestForm& copy);
+		void execute(Bureaucrat const & executor) const;
+};
