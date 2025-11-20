@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 16:54:15 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/11/13 17:29:59 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/11/18 13:07:28 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,18 @@ Base * generate(void) {
 }
 
 void identify(Base* p) {
-	Base *r;
-
-	r = dynamic_cast<A *>(p);
-	if (r) {
+	if (dynamic_cast<A *>(p))
+	{
 		std::cout << "The object is A type" << std::endl;
 		return ;
 	}
-	r = dynamic_cast<B *>(p);
-	if (r) {
+	if (dynamic_cast<B *>(p))
+	{
 		std::cout << "The object is B type" << std::endl;
 		return ;
 	}
-	r = dynamic_cast<C *>(p);
-	if (r) {
+	if (dynamic_cast<C *>(p))
+	{
 		std::cout << "The object is C type" << std::endl;
 		return ;
 	}

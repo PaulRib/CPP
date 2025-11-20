@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 14:29:09 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/11/13 16:05:37 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/11/18 13:11:45 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int isValid(std::string input)
 	{
 		if(input.size() != 1)
 		{
-			if(!(input.compare("-inff") || input.compare("+inff") || input.compare("nanf")))
+			if(input == "-inff" || input == "+inff" || input == "nanf")
 				return(2);
-			else if(!(input.compare("-inf") || input.compare("+inf") || input.compare("nan")))
+			else if(input == "-inf" || input == "+inf" || input == "nan")
 				return(2);
 			else if(!((std::isdigit(input[i])) || input[i] == 'F' || input[i] == 'f' || input[i] == '.' || input[i] == '+' || input[i] == '-'))
 				return (0);
