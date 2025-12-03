@@ -5,18 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/26 11:45:17 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/12/03 15:01:58 by pribolzi         ###   ########.fr       */
+/*   Created: 2025/11/24 14:48:13 by pribolzi          #+#    #+#             */
+/*   Updated: 2025/11/24 15:58:27 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-Zombie* zombieHorde(int N, std::string name);
+#include "easyfind.hpp"
 
 int main() {
-	int n = -1;
-	Zombie* zbs;
-
-	zbs = zombieHorde(n, "Zombio");
-	delete [] zbs;
+	std::vector<int> vec;
+	vec.push_back(5);
+	vec.push_back(8);
+	vec.push_back(40);
+	vec.push_back(6);
+	vec.push_back(65);
+	try {
+		std::cout << "Test avec une valeur dans le vector : " << std::endl;
+		easyfind(vec, 65);
+		std::cout << "Test avec une valeur dans le vector : " << std::endl;
+		easyfind(vec, 40);
+		std::cout << "Test avec une valeur  qui n'est pas dans le vector : " << std::endl;
+		easyfind(vec, 80);
+	}
+	catch (std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
 }
