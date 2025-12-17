@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 16:39:33 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/12/17 18:56:17 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/12/17 20:21:41 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class PmergeMe {
 	private:
 		std::vector<int> _vec;
 		std::deque<int> _deq;
-		bool			_extra;
 	public:
 		PmergeMe();
 		PmergeMe(const PmergeMe& copy);

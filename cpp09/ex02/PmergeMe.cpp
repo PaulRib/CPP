@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 16:39:38 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/12/17 18:58:25 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/12/17 20:21:52 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 PmergeMe::PmergeMe(){}
 
-PmergeMe::PmergeMe(const PmergeMe& copy) : _vec(copy._vec), _deq(copy._deq), _extra(false) {}
+PmergeMe::PmergeMe(const PmergeMe& copy) : _vec(copy._vec), _deq(copy._deq){}
 
 PmergeMe::~PmergeMe(){}
 
@@ -22,7 +22,6 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& copy) {
 	if (this != &copy) {
 		_vec = copy._vec;
 		_deq = copy._deq;
-		_extra = copy._extra;
 	}
 	return (*this);
 }
@@ -36,6 +35,17 @@ int PmergeMe::addNumber(int nb) {
 	return (0);
 }
 
+std::vector<int> PmergeMe::generateJacobsthal(int n) {
+	std::vector<int> jacob;
+	jacob.push_back(1);
+	jacob.push_back(3);
+	while (jacob.back() < n) {
+		int j = jacob[jacob.size() - 1] + 2 * jacob[jacob.size() - 2];
+		jacob.push_back(j);
+	}
+	return jacob;
+}
+
 void PmergeMe::vecSort() {
 	std::vector<int> to_sort = _vec;
 	if (to_sort.size() < 2)
@@ -46,7 +56,7 @@ void PmergeMe::vecSort() {
 	vecSortRecur(chain);
 	_vec.clear();
 	for (size_t i = 0; i < chain.size(); ++i) {
-		_vec[i] = chain[i].first;
+		_vec.push_back(chain[i].first);
 		std::cout << _vec[i] << std::endl;
 	}
 	std::cout << "\n";
@@ -77,17 +87,6 @@ void PmergeMe::vecSortRecur(std::vector<std::pair<int, int> > &chain) {
 	vecSortRecur(winners);
 	vecBinarySort(winners, looser, straggler, has_straggler);
 	chain = winners;
-}
-
-std::vector<int> PmergeMe::generateJacobsthal(int n) {
-	std::vector<int> jacob;
-	jacob.push_back(1);
-	jacob.push_back(3);
-	while (jacob.back() < n) {
-		int j = jacob[jacob.size() - 1] + 2 * jacob[jacob.size() - 2];
-		jacob.push_back(j);
-	}
-	return jacob;
 }
 
 void PmergeMe::vecBinarySort(std::vector<std::pair<int, int> > &winners, std::vector<std::pair<int, int> > &loosers, std::pair<int, int> straggler, bool has_straggler) {
