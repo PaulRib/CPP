@@ -5,32 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/09 16:00:18 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/12/12 16:16:06 by pribolzi         ###   ########.fr       */
+/*   Created: 2025/12/03 15:41:51 by pribolzi          #+#    #+#             */
+/*   Updated: 2025/12/05 15:29:29 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MateriaSource.hpp"
-#include "Character.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
+#include "BitcoinExchange.hpp"
 
-int main()
-{
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	ICharacter* bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
-	delete src;
-	delete bob;
-	delete me;
-	return 0;
+int main(int argc, char **argv) {
+	BitcoinExchange bt;
+
+	(void)argv;
+	if (argc != 2) {
+		std::cout << "Usage : ./btc <filename>" << std::endl;
+		return (1);
+	}
+	std::ifstream ifs(argv[1]);
+	std::string content;
+	if (!ifs) {
+		std::cerr << "Error: could not open file" << std::endl;
+		return (1);
+	}
+	bt.getDatabase();
+	while (getline(ifs, content)) {
+		bt.verifyLine(content);
+	}
 }

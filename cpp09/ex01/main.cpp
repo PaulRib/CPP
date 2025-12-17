@@ -5,32 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/09 16:00:18 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/12/12 16:16:06 by pribolzi         ###   ########.fr       */
+/*   Created: 2025/12/08 14:22:02 by pribolzi          #+#    #+#             */
+/*   Updated: 2025/12/13 18:05:17 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MateriaSource.hpp"
-#include "Character.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
+#include "RPN.hpp"
 
-int main()
-{
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	ICharacter* bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
-	delete src;
-	delete bob;
-	delete me;
-	return 0;
+int main(int argc, char **argv) {
+	RPN r;
+	if (argc != 2) {
+		std::cout << "Usage : ./RPN operation" << std::endl;
+		return(1);
+	}
+	if (argv[1][0] == '\0') {
+		std::cout << "Error" << std::endl;
+		return (1);
+	}
+	try {
+		r.parser(argv[1]);
+	}
+	catch (std::exception & e) {
+		std::cerr << e.what() << std::endl;
+	}
+	return (0);
 }
