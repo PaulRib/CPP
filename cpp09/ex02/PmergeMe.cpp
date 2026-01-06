@@ -6,7 +6,7 @@
 /*   By: pribolzi <pribolzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 16:39:38 by pribolzi          #+#    #+#             */
-/*   Updated: 2025/12/17 20:21:52 by pribolzi         ###   ########.fr       */
+/*   Updated: 2025/12/18 11:12:26 by pribolzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,22 @@ int PmergeMe::addNumber(int nb) {
 	return (0);
 }
 
+void PmergeMe::printVec() {
+	std::vector<int>::iterator it = _vec.begin();
+	for (; it != _vec.end(); ++it) {
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+}
+
+void PmergeMe::printDeq() {
+	std::deque<int>::iterator it = _deq.begin();
+	for (; it != _deq.end(); ++it) {
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+}
+
 std::vector<int> PmergeMe::generateJacobsthal(int n) {
 	std::vector<int> jacob;
 	jacob.push_back(1);
@@ -55,11 +71,8 @@ void PmergeMe::vecSort() {
 		chain.push_back(std::make_pair(to_sort[i], i));
 	vecSortRecur(chain);
 	_vec.clear();
-	for (size_t i = 0; i < chain.size(); ++i) {
+	for (size_t i = 0; i < chain.size(); ++i)
 		_vec.push_back(chain[i].first);
-		std::cout << _vec[i] << std::endl;
-	}
-	std::cout << "\n";
 }
 
 void PmergeMe::vecSortRecur(std::vector<std::pair<int, int> > &chain) {
@@ -125,10 +138,8 @@ void PmergeMe::deqSort() {
 		chain.push_back(std::make_pair(to_sort[i], i));
 	deqSortRecur(chain);
 	_deq.clear();
-	for (size_t i = 0; i < chain.size(); ++i) {
-		_deq[i] = chain[i].first;
-		std::cout << _deq[i] << std::endl;
-	}
+	for (size_t i = 0; i < chain.size(); ++i)
+		_deq.push_back(chain[i].first);
 }
 
 void PmergeMe::deqSortRecur(std::deque<std::pair<int, int> > &chain) {
